@@ -1,0 +1,136 @@
+@startuml Mascota
+
+package Alimento{
+    class Alimento{
+        -peces:Peces
+        -calamares:Calamares
+        -pulpos:Pulpos
+        -mariscos:Mariscos
+        -croquetas:Croquetas
+        +comidas(Carnes)
+        -carnes:Carnes
+    }
+    class Peces
+    class Calamares
+    class Pulpos
+    class Mariscos
+    class Croquetas
+    class Comidas{
+        -carnes:Carnes
+    }
+    class Carnes
+}
+
+package Mascota{
+    class Mascota{
+        -foca:Foca
+        -delfin:Delfin
+        -perro:Perro
+    }
+    class Foca{
+        -juguete:Juguete
+        +Comer(Alimento)
+        -habitat:Habitat
+    }
+    
+    class Delfin{
+        -juguete:Juguete
+        +Comer(Alimento)
+    }
+    class Perro{
+        -juguete:Juguetes
+        +Comer(Alimento)
+    }
+}
+
+package Juguete{
+    class Juguete{
+        -aros:Aros
+        -pelota:Pelota
+    }
+    class Pelota
+    class Aros
+    class Juguetes{
+        -pelota:Pelota
+        -frisbees:Frisbees
+    }
+    class Frisbees
+}
+
+package Habitat{
+    class Habitat{
+        -aguascosteras:AguasCosteras
+    }
+    class AguasCosteras{
+        -estuarios:Estuarios
+        -areasintermareales:AreasIntermareales
+        -bahias:Bahias
+    }
+    class Estuarios
+    class AreasIntermareales
+    class Bahias
+}
+
+package Genero{
+    class Genero{
+        -macho:Macho
+        -hembra:Hembra
+    }
+    class Macho
+    class Hembra
+}
+
+package Siesta{
+    class Siesta{
+        -20min:20min
+        -12hrs:12hrs
+    }
+    class 20min
+    class 12hrs
+}
+
+package Baño{
+    class Baño{
+        -aguayjabon:AguaYJabon
+    }
+    class AguaYJabon{
+        -agua:Agua
+        -jabon:Jabon
+    }
+}
+
+Delfin o--|> Mascota
+Delfin *--o Alimento
+Delfin *--o Juguete
+Foca o--|> Mascota
+Foca *--o Alimento
+Foca *--o Juguete
+Alimento *--o Mariscos
+Juguete *--o Pelota
+Juguete *--o Aros
+Mariscos *--o Peces
+Mariscos *--o Calamares 
+Mariscos *--o Pulpos
+Foca *--o Habitat
+Habitat*--o AguasCosteras
+AguasCosteras *--o Bahias
+AguasCosteras *--o Estuarios
+AguasCosteras *--o AreasIntermareales
+Foca *--o Genero
+Genero *--o Macho
+Foca *--o Siesta
+Siesta *--o 20min
+Perro o--|> Mascota
+Perro *--o Juguetes
+Juguetes *--o Pelota
+Juguetes *--o Frisbees
+Perro *--o Comidas
+Comidas *--o Croquetas
+Comidas *--o Carnes
+Genero *--o Hembra
+Perro *--o Baño
+Baño *--o AguaYJabon
+Perro *--o Siesta
+Siesta *--o 12hrs
+
+@enduml
