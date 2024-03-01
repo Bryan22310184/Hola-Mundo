@@ -13,7 +13,11 @@ package Alimento{
     class Peces
     class Calamares
     class Pulpos
-    class Mariscos
+    class Mariscos{
+        -peces:Peces
+        -calamares:Calamares
+        -pulpos:Pulpos
+    }
     class Croquetas
     class Comidas{
         -carnes:Carnes
