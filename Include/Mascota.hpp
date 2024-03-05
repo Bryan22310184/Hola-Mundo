@@ -1,6 +1,7 @@
 #pragma once
-//Para que se importe una sola vez
 #include <Alimento.hpp>
+#include<string>
+
 
 class Mascota
 {
@@ -8,11 +9,12 @@ private:
     //implementacion oculta
     int Energia;
     int Felicidad;
+    std::string nombre;
 public:
     //interfaz
     Mascota(){
         this->Energia=0;
-        this->Felicidad=0;
+        this->nombre=nombre;
     }
     ~Mascota(){}
     void Comer(Alimento alimento){
@@ -28,4 +30,9 @@ public:
     int LeerEnergia(){
         return this->Energia;
     }
+    std::string LeerNombre(){
+        return this->nombre;
+    }
+
+    return 0;
 };
